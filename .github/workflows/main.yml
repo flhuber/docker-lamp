@@ -35,7 +35,7 @@ jobs:
         uses: docker/setup-buildx-action@v1
       -
         name: Build Main
-        run: docker buildx  build --build-arg PHP_VERSION=8.0 -t=ghcr.io/flhuber/lamp:latest -f --push ./2004/Dockerfile .
+        run: docker buildx  build --build-arg PHP_VERSION=8.0 -t=ghcr.io/flhuber/lamp:latest -f --push ./2004/Dockerfile 
       -
         name: Build 20.04 PHP8
         run: docker build --build-arg PHP_VERSION=8.0 -t=ghcr.io/flhuber/lamp:latest-2004-php8 -f ./2004/Dockerfile .     
