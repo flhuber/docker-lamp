@@ -29,7 +29,7 @@ jobs:
         uses: actions/checkout@v2
       -
         name: Build Main
-        run: docker build --build-arg PHP_VERSION=8.0 -t=ghcr.io/flhuber/lamp:latest --push . -f ./2004/Dockerfile .
+        run: docker build --build-arg PHP_VERSION=8.0 -t=ghcr.io/flhuber/lamp:latest --push -f ./2004/Dockerfile .
       -
         name: Build 20.04 PHP8
         run: docker build --build-arg PHP_VERSION=8.0 -t=ghcr.io/flhuber/lamp:latest-2004-php8 -f ./2004/Dockerfile .     
