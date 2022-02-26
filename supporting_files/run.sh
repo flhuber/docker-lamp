@@ -111,5 +111,8 @@ else
     echo "=> Using an existing volume of MySQL"
 fi
 
+echo "Creating empty database called database"
+mysql -uroot -e "create database database"
+
 echo "Starting supervisord"
 exec supervisord -n
