@@ -59,7 +59,7 @@ jobs:
           tags: ghcr.io/flhuber/lamp:latest-1804-php8
           push: true
           build-args: PHP_VERSION=8.0
-          file: ./1804/dockerfile
+          file: ./1804/Dockerfile
       -
         name: Build and push PHP7 18.04
         uses: docker/build-push-action@v2
