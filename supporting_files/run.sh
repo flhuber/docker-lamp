@@ -24,6 +24,20 @@ function replace_apache_php_ini_values () {
 
     sed -i "s/;date.timezone =/date.timezone = Europe\/London/g" /etc/php/$1/apache2/php.ini
 
+    echo "Configure XDEBUG"
+    echo 'zend_extension=xdebug' >> /etc/php/$1/apache2/php.ini
+    echo 'xdebug.client_port=9003' >> /etc/php/$1/apache2/php.ini
+    echo 'xdebug.client_host=172.17.0.1' >> /etc/php/$1/apache2/php.ini
+    echo 'xdebug.start_with_request=yes' >> /etc/php/$1/apache2/php.ini
+    echo 'xdebug.discover_client_host=1' >> /etc/php/$1/apache2/php.ini
+    echo 'xdebug.idekey=DOCKER' >> /etc/php/$1/apache2/php.ini
+    echo 'xdebug.show_error_trace = 1' >> /etc/php/$1/apache2/php.ini
+    echo 'xdebug.max_nesting_level=250' >> /etc/php/$1/apache2/php.ini
+    echo 'xdebug.var_display_max_depth=10' >> /etc/php/$1/apache2/php.ini
+    echo 'xdebug.log=/var/log/xdebug.log' >> /etc/php/$1/apache2/php.ini
+    echo 'xdebug.remote_enable=1' >> /etc/php/$1/apache2/php.ini
+    echo 'xdebug.remote_connect_back=1' >> /etc/php/$1/apache2/php.ini
+    echo 'xdebug.mode=develop,coverage,debug,gcstats,profile,trace' >> /etc/php/$1/apache2/php.ini
 }
 if [ -e /etc/php/5.6/apache2/php.ini ]; then replace_apache_php_ini_values "5.6"; fi
 if [ -e /etc/php/$PHP_VERSION/apache2/php.ini ]; then replace_apache_php_ini_values $PHP_VERSION; fi
@@ -110,6 +124,9 @@ if [[ ! -d $VOLUME_HOME/mysql ]]; then
 else
     echo "=> Using an existing volume of MySQL"
 fi
+
+echo "Creating empty database called database"
+mysql -uroot -e "create database database"
 
 echo "Starting supervisord"
 exec supervisord -n

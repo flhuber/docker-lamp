@@ -3,10 +3,28 @@ Docker-LAMP is a set of docker images that include the phusion baseimage (18.04 
 
 With Ubuntu **20.04** and **18.04** images on the `latest-2004` and `latest-1804` tags, Docker-LAMP is flexible enough to use with all of your LAMP projects.
 
-[![Build Status][shield-build-status]][info-build-status]
-[![Docker Hub][shield-docker-hub]][info-docker-hub]
 [![License][shield-license]][info-license]
+### Differences to mattrayner/lamp
+- xdebug support preconfigured
+- empty database already created during startup (name: database) to ease development
+- SOAP activated
 
+### Setup of xdebug in VSCode
+Add configuration
+```
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Listen for Xdebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9003,
+            "pathMappings": {
+                "/app/": "${workspaceFolder}/app"
+            }
+        },
+```
 ### Contents
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
