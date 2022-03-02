@@ -49,7 +49,7 @@ jobs:
           context: .
           tags: ghcr.io/flhuber/lamp:latest-2004-php7
           push: true
-          build-args: PHP_VERSION=7.0
+          build-args: PHP_VERSION=7.4
           file: ./2004/Dockerfile
       -
         name: Build and push PHP8 18.04
@@ -67,5 +67,5 @@ jobs:
           context: .
           tags: ghcr.io/flhuber/lamp:latest-1804-php7
           push: true
-          build-args: PHP_VERSION=7.0
+          build-args: PHP_VERSION=7.4
           file: ./1804/Dockerfile
