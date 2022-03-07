@@ -25,6 +25,14 @@ Add configuration
             }
         },
 ```
+### Run
+```
+docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql ghcr.io/flhuber/lamp:latest-1804-php7
+docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql ghcr.io/flhuber/lamp:latest-1804-php8
+docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql ghcr.io/flhuber/lamp:latest-2004-php7
+docker run -i -t -p "80:80" -v ${PWD}/app:/app -v ${PWD}/mysql:/var/lib/mysql ghcr.io/flhuber/lamp:latest-2004-php8
+
+```
 ### Contents
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
